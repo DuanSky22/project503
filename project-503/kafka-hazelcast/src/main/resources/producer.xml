@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kafka-producer>
-	<metadata.broker.list>133.133.61.113:9092</metadata.broker.list>
+	<metadata.broker.list>133.133.61.115:9092</metadata.broker.list>
 	<serializer.class>kafka.serializer.StringEncoder</serializer.class>
 	<key.serializer.class>kafka.serializer.StringEncoder</key.serializer.class>
 	<partition.class>kafka.producer.DefaultPartitioner</partition.class>
@@ -10,11 +10,11 @@
 	<topic.list>
 	   <topic>
 		 <name>temperature</name>
-		 <stream.number>3</stream.number>
+		 <stream.number>4</stream.number>
 	  </topic>
 	  <topic>
 		<name>humidity</name>
-		 <stream.number>3</stream.number>
+		 <stream.number>4</stream.number>
 	 </topic>
 </topic.list>
 </kafka-producer>
