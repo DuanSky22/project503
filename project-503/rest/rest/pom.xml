@@ -1,9 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <artifactId>rest</artifactId>
   <packaging>war</packaging>
-  <name>rest Maven Webapp</name>
+  
+  <name>rest</name>
   <url>http://maven.apache.org</url>
   
   <parent>
@@ -13,6 +15,12 @@
   </parent>
   
   <dependencies>
+  
+  	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -22,5 +30,21 @@
   </dependencies>
   <build>
     <finalName>rest</finalName>
+    <plugins>
+    	<plugin>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>8.1.5.v20120716</version>
+			<configuration>
+				<stopPort>9966</stopPort>
+				<stopKey>foo</stopKey>
+				<scanIntervalSeconds>10</scanIntervalSeconds>
+				<webApp>
+					<contextPath>/teff</contextPath>
+				</webApp>
+			</configuration>
+		</plugin>
+    </plugins>
   </build>
+  			
 </project>
