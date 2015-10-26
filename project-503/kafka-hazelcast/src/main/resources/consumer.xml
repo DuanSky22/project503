@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consumer>
+	<zookeeper>
+		<zookeeper.connect>133.133.134.130:2181</zookeeper.connect>
+		<zookeeper.session.timeout>200</zookeeper.session.timeout>
+		<auto.commit.interval>100</auto.commit.interval>
+		<auto.offset.reset>smallest</auto.offset.reset>
+	</zookeeper>
+	<consumer>
+		<topic.list>
+			<topic>
+				<name>temperature</name>
+				<stream.number>3</stream.number>
+			</topic>
+			<topic>
+				<name>humidity</name>
+				<stream.number>3</stream.number>
+			</topic>
+		</topic.list>
+		<group.id>group</group.id>
+		<serializer.class>kafka.serializer.StringEncoder</serializer.class>
+	</consumer>
+</consumer>

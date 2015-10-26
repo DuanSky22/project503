@@ -3,4 +3,10 @@
   <groupId>com.iscas</groupId>
   <artifactId>project-503</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+  	<module>kafka-hazelcast</module>
+  	<module>rest</module>
+  </modules>
 </project>
