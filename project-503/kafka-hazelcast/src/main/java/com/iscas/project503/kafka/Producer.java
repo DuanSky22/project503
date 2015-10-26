@@ -41,7 +41,7 @@ public class Producer {
 	public static void produce(){
 		loadConfig();
 		producer = new kafka.javaapi.producer.Producer<String, String>(new ProducerConfig(prop));
-		//topics=TopicFactory.newTopics(topicNums);
+		topics=TopicFactory.newTopics(topicNums);
 		//TODO 去 props里面拿topics
 		topicNums=topics.length; //TODO maybe the factory cannot return much topic.
 		int currentTopic=0;

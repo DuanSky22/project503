@@ -61,8 +61,8 @@ public class Consumer implements Runnable {
         ExecutorService executor=Executors.newCachedThreadPool();
         for( KafkaStream<String, String> stream : consumerMap.get(topic)){
         	//for a specific stream
-//        	Runnable consumerThread = new ConsumerThread(topic,topicMap,stream); 
-//        	executor.execute(consumerThread);
+         	Runnable consumerThread = new ConsumerThread(topic,topicMap,stream); 
+    	    executor.execute(consumerThread);
         	
         }
         System.out.println("----consumer----done!");
