@@ -3,24 +3,25 @@ package com.iscas.project503.util;
 public class TopicFactory {
 	
 	public static int current=0;
-	
-	public static String nextTopic(){
-		return Topic.values()[(current++) % Topic.values().length].getDescription();
+
+/*	public static void main(String[] args) {
+		for(int i =0 ; i < 10 ; i ++) {
+			System.out.println(produceTopic());
+		}
+	}*/
+	public static String produceTopic(){
+		Topic  topic = Topic.values()[((current++) % Topic.values().length)]; 
+		return newTopic(topic);
 	}
-	
-	public static String newTopic(Topic topic){
+	public static String newTopic(Topic  topic){
 		String result=null;
 		switch(topic){
-		case HUMIDITY : 
-			result=Topic.HUMIDITY.getDescription();
+		case ENVIRONMENTINFO : 
+			result=Topic.ENVIRONMENTINFO.getDescription();
 			break;
-		case TEMPERATURE:
-			result=Topic.TEMPERATURE.getDescription();
+		case ENVIRONMENTALARM:
+			result=Topic.ENVIRONMENTALARM.getDescription();
 			break;
-		case WATER:
-			result=Topic.WATER.getDescription();
-		case SUNLIGHT:
-			result=Topic.SUNLIGHT.getDescription();
 		}
 		return result;
 	}
@@ -35,12 +36,10 @@ public class TopicFactory {
 	}
 	
 	public enum Topic{
-		TEMPERATURE("temperature"),
-		HUMIDITY("humidity"),
-		WATER("water"),
-		SUNLIGHT("sunlight");
+		ENVIRONMENTINFO("environmentInfo"),
+		ENVIRONMENTALARM("environmentAlarm");
 		
-		private String description;
+		private  String  description;
 		
 		private Topic(String description){
 			this.description=description;
@@ -50,5 +49,4 @@ public class TopicFactory {
 			return description;
 		}
 	}
-
 }
