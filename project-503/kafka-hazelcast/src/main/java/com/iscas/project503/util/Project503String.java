@@ -15,6 +15,11 @@ public final class Project503String {
 	public static final String GROUP_ID="group.id";
 	public static final String SERIALIZER_CLASS="serializer.class";
 	
-	public static final String INNER_SPLIT="&--&";
+	public static final String ENVINFO="envinfo";
+	public static final String WEATHER="weather";
+	public static final String WEATHER_KEY="weatherinfo";
+	public static final String ALARMINFO="alarminfo";
+	
+	public static final String INNER_SPLIT=":--:";
 	public static final String MESSAGE_SPLIT="#--#";
 }
