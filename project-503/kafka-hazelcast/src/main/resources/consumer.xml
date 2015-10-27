@@ -9,15 +9,15 @@
 	<consumer>
 		<topic.list>
 			<topic>
-				<name>temperature</name>
-				<stream.number>3</stream.number>
+				<name>environmentInfo</name>
+				<stream.number>4</stream.number>
 			</topic>
 			<topic>
-				<name>humidity</name>
-				<stream.number>3</stream.number>
+				<name>environmentAlarm</name>
+				<stream.number>4</stream.number>
 			</topic>
 		</topic.list>
-		<group.id>group</group.id>
+		<group.id>group001</group.id>
 		<serializer.class>kafka.serializer.StringEncoder</serializer.class>
 	</consumer>
 </consumer>
