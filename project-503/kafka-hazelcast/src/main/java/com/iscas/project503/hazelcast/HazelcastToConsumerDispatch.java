@@ -15,18 +15,16 @@ import com.iscas.project503.kafka.Consumer;
 import com.iscas.project503.util.ConsumerConfigParser;
 import com.iscas.project503.util.Project503String;
 
-/**
- * 从kafka中区数据到hazelcast和hbase中.
- * */
-public class KafkaInHazencast {
+
+public class HazelcastToConsumerDispatch {
 	
 	private static int threadNum=0;
 	
 	public static void main(String args[]){
-		kafkaToHazelcast();
+		storeInHazelcast();
 	}
 
-	public static void kafkaToHazelcast(){
+	public static void storeInHazelcast(){
 		List<Properties> props=getProperties();
 		ExecutorService service=Executors.newFixedThreadPool(threadNum);
 		
