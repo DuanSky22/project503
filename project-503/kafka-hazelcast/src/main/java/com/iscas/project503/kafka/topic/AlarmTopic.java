@@ -8,7 +8,7 @@ import com.iscas.project503.util.Project503String;
 
 public class AlarmTopic extends Topic{
 	
-	private static long termID=1;
+	private static long termID=0;
 	
 	public AlarmTopic(){
 		super(Project503String.ENVINFO);

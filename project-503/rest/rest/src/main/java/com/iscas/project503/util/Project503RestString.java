@@ -11,7 +11,7 @@ public final class Project503RestString {
 	
 	public static final String WEATHER_KEY="weatherinfo";
 	
-	public static final String ALARMINFO="alarminfo";
+	public static final String ALARMINFO="alarmInfo";
 	
 	public static final String FIND="/dataengine/redis/find";
 	

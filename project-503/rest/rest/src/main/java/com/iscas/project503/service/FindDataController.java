@@ -48,7 +48,7 @@ public class FindDataController {
     @RequestMapping(SEPARATER+ALARMINFO)
     @ResponseBody
     public Map<String,String>[] queryRealtimeAlarmInfo(@RequestParam(value = "termID[]", required = true) String[] termID){
-        IMap<String,IMap<String,String>> map=node.getMap(ALARMINFO);
+        Map<String,Map<String,String>> map=node.getMap(ALARMINFO);
         if(termID!=null && termID.length!=0){
         	Map[] result = new HashMap[termID.length];
             for(int i=0;i<termID.length;i++)

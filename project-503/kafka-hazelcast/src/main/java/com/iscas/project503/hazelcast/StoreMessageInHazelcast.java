@@ -85,6 +85,7 @@ public class StoreMessageInHazelcast implements StoreMessage{
 		if(message==null || message.length()==0) return;
 		Map<String,String> map=client.getMap(WEATHER);
 		map.put(findKey(MESSAGE_TERM_ID,message), message);
+		map.put(WEATHER_KEY,message);
 	}
 	
 	public void storeAsynSendResponse(String message){
