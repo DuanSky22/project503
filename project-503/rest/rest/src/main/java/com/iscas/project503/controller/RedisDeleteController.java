@@ -1,7 +1,7 @@
-package com.iscas.project503.service;
+package com.iscas.project503.controller;
 
 import static com.iscas.project503.util.Project503RestString.ALARMINFO;
-import static com.iscas.project503.util.Project503RestString.DELETE;
+import static com.iscas.project503.util.Project503RestString.REDIS_DELETE;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +15,8 @@ import com.hazelcast.core.IMap;
 import com.iscas.project503.util.Project503HazelcastClient;
 
 @RestController
-@RequestMapping(DELETE)
-public class DeleteDataController {
+@RequestMapping(REDIS_DELETE)
+public class RedisDeleteController {
 
 	private HazelcastInstance node=Project503HazelcastClient.getInstance();
 	

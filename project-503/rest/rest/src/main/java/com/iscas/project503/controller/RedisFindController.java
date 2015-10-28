@@ -1,8 +1,8 @@
-package com.iscas.project503.service;
+package com.iscas.project503.controller;
 
 import static com.iscas.project503.util.Project503RestString.ALARMINFO;
 import static com.iscas.project503.util.Project503RestString.ENVINFO;
-import static com.iscas.project503.util.Project503RestString.FIND;
+import static com.iscas.project503.util.Project503RestString.REDIS_FIND;
 import static com.iscas.project503.util.Project503RestString.SEPARATER;
 import static com.iscas.project503.util.Project503RestString.WEATHER;
 import static com.iscas.project503.util.Project503RestString.WEATHER_KEY;
@@ -19,8 +19,8 @@ import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
 import com.iscas.project503.util.Project503HazelcastClient;
 @RestController
-@RequestMapping(FIND)
-public class FindDataController {
+@RequestMapping(REDIS_FIND)
+public class RedisFindController {
 	
 	private HazelcastInstance node=Project503HazelcastClient.getInstance();
 	

@@ -1,8 +1,8 @@
-package com.iscas.project503.service;
+package com.iscas.project503.controller;
 
 import static com.iscas.project503.util.Project503RestString.ALARMINFO;
 import static com.iscas.project503.util.Project503RestString.SEPARATER;
-import static com.iscas.project503.util.Project503RestString.UPDATE;
+import static com.iscas.project503.util.Project503RestString.REDIS_UPDATE;
 
 import java.util.Map;
 
@@ -16,8 +16,8 @@ import com.hazelcast.core.IMap;
 import com.iscas.project503.util.Project503HazelcastClient;
 
 @RestController
-@RequestMapping(UPDATE)
-public class UpdateDataController {
+@RequestMapping(REDIS_UPDATE)
+public class RedisUpdateController {
 	
 	private HazelcastInstance node=Project503HazelcastClient.getInstance();;
 	
