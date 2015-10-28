@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <consumer>
 	<zookeeper>
-		<zookeeper.connect>133.133.61.115:2181</zookeeper.connect>
+		<zookeeper.connect>133.133.61.113:2181</zookeeper.connect>
 		<zookeeper.session.timeout>200</zookeeper.session.timeout>
 		<auto.commit.interval>100</auto.commit.interval>
 		<auto.offset.reset>smallest</auto.offset.reset>

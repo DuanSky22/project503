@@ -23,6 +23,7 @@ public class Stream implements Runnable{
 	public void run() {
 		for (ConsumerIterator<String, String> it = stream.iterator(); it.hasNext();){
 			MessageAndMetadata<String, String> message = it.next();
+			System.out.println("receive "+message.topic()+" "+message.message());
 			storeMessage.store(message.topic(),message.message());
 		}
 	}

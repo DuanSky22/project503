@@ -4,11 +4,11 @@ import static com.iscas.project503.util.Project503String.*;
 
 public class TopicFactory {
 	
-	public String getNextMessage(String topic){
+	public static String getNextMessage(String topic){
 		switch(topic){
 		case TOPIC_ENVIRONMENTINFO:
 			return new EnvironmentTopic().getNextMessage();
-		case TOPIC_EVVIRONMENTALARM:
+		case TH_EVVIRONMENTALARM:
 			return new EnvironmentAlarmTopic().getNextMessage();
 		case TOPIC_SCALEINFO:
 			return new ScaleInfoTopic().getNextMessage();

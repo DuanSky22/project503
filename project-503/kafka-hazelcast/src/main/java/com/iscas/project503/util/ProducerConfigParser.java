@@ -9,6 +9,11 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 public class ProducerConfigParser {
+	
+	public static void main(String args[]){
+		ProducerConfigParser config=ProducerConfigParser.getInstance();
+		Properties p=config.getProducerConfig();
+	}
 
 	private static ProducerConfigParser instance=null;
 	private static Properties prop=null;
@@ -50,6 +55,7 @@ public class ProducerConfigParser {
 						prop.put(Project503String.TOPIC+topicCounter+"", topicName);
 						prop.put(topicName, topicStreamNums);
 					}
+					prop.put(Project503String.TOPIC_COUNT, topicCounter);
 				} else {
 					prop.put(e.getName(), e.getData());
 				}

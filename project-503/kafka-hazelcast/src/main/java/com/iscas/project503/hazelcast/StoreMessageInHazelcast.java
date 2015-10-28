@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.hazelcast.core.HazelcastInstance;
+import com.iscas.project503.kafka.topic.TopicFactory;
 import com.iscas.project503.util.Project503HazelcastClient;
 
 public class StoreMessageInHazelcast implements StoreMessage{
@@ -17,7 +18,7 @@ public class StoreMessageInHazelcast implements StoreMessage{
 		case TOPIC_ENVIRONMENTINFO:
 			storeEnvironmentInfo(message);
 			break;
-		case TOPIC_EVVIRONMENTALARM:
+		case TH_EVVIRONMENTALARM:
 			storeEnvironmentAlarm(message);
 			break;
 		case TOPIC_SCALEINFO:
@@ -36,15 +37,15 @@ public class StoreMessageInHazelcast implements StoreMessage{
 	public void storeEnvironmentInfo(String message){
 		if(message==null || message.length()==0) return ;
 		Map<String,String> map=client.getMap(ENVINFO);
-		map.put(findKey(ENVINFO,message), message);
+		map.put(findKey(MESSAGE_TERM_ID,message), message);
 	}
 	
 	//environmentinfo topic <=> envinfo & alarm hazelcast
 	public void storeEnvironmentAlarm(String message){
 		if(message==null || message.length()==0) return ;
 		//store envinfo in hazelcast
-		Map<String,String> envinfo=client.getMap(ENVINFO);
-		envinfo.put(findKey(ENVINFO,message), message);
+		Map<String,String> envinfo=client.getMap(TH_EVVIRONMENTALARM);
+		envinfo.put(findKey(MESSAGE_TERM_ID,message), message);
 		//store alarm in hazelcast
 		storeAlarm(message);
 	}
@@ -53,17 +54,23 @@ public class StoreMessageInHazelcast implements StoreMessage{
 		int start=message.indexOf(ALARMINFO);
 		if(start==-1)
 			return;
-		int left=message.indexOf(MESSAGE_JSON_LEFT_BRACE,start);
-		int right=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,start);
+		int left=message.indexOf(MESSAGE_JSON_LEFT_SQUARE_BRACKET,start);
+		int right=message.indexOf(MESSAGE_JSON_RIGHT_SQUARE_BRACKET,start);
+		if(left+1==right)
+			return;
+		message=message.substring(left,right+1);
+		left=message.indexOf(MESSAGE_JSON_LEFT_BRACE);
+		right=message.indexOf(MESSAGE_JSON_RIGHT_BRACE);
+
 		Map<String,Map<String,String>> alarminfo=client.getMap(ALARMINFO);
 		while(left!=-1 && right!=-1){
 			String alarmMessage=message.substring(left,right+1); //here we get alarm info.
 			String alarmType=findKey(MESSAGE_ALARM_TYPE,alarmMessage);
 			Map<String,String> typeMap=new HashMap<String,String>();
 			typeMap.put(alarmType, alarmMessage);
-			alarminfo.put(findKey(ALARMINFO,alarmMessage), typeMap);
-			left=message.indexOf(MESSAGE_JSON_LEFT_BRACE,left);
-			right=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,right);
+			alarminfo.put(findKey(MESSAGE_TERM_ID,alarmMessage), typeMap);
+			left=message.indexOf(MESSAGE_JSON_LEFT_BRACE,left+1);
+			right=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,right+1);
 		}
 	}
 	
@@ -94,10 +101,15 @@ public class StoreMessageInHazelcast implements StoreMessage{
 		if(start==-1)
 			return key;
 		int a,b;
-		if((a=message.indexOf(MESSAGE_JSON_COMMA))!=-1 && (b=message.indexOf(MESSAGE_JSON_RIGHT_BRACE))!=-1){
-			key=message.substring(start+keyName.length()+1,Math.min(a, b));
+		if((a=message.indexOf(MESSAGE_JSON_COMMA,start))!=-1 && (b=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,start))!=-1){
+			key=message.substring(start+keyName.length()+3,Math.min(a, b)-1);
 		}
 		return key;
+	}
+	
+	public static void main(String args[]){
+		StoreMessageInHazelcast smh=new StoreMessageInHazelcast();
+		smh.store(TH_EVVIRONMENTALARM, TopicFactory.getNextMessage(TH_EVVIRONMENTALARM));
 	}
 
 }

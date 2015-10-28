@@ -22,13 +22,9 @@ public class Consumer implements Runnable {
 	private final ConsumerConnector consumer;
 
 	public Consumer(Properties prop) {
-		loadConfig(prop);
-		consumer = kafka.consumer.Consumer.createJavaConsumerConnector(config);
-	}
-
-	public void loadConfig(Properties prop) {
-		this.prop = prop;
+		this.prop=prop;
 		config = new ConsumerConfig(prop);
+		consumer = kafka.consumer.Consumer.createJavaConsumerConnector(config);
 	}
 
 	public void run() {
