@@ -5,9 +5,9 @@ import java.util.Properties;
 import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
+import com.iscas.project503.kafka.topic.TopicFactory;
 import com.iscas.project503.util.MessageFactory;
 import com.iscas.project503.util.ProducerConfigParser;
-import com.iscas.project503.util.TopicFactory;
 
 public class Producer {
 	

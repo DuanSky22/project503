@@ -65,5 +65,26 @@ public class AlarmInfo {
 	public void setHandleStatus(String handleStatus) {
 		this.handleStatus = handleStatus;
 	}
+	
+	public enum AlarmType{
+		
+		TempratureHighAlarm("tempratureHighAlarm"),
+		TempratureLowAlarm("tempratureLowAlarm"),
+		WeatherWindSpeedAlarm("weather_windSpeedAlarm"),
+		WeatherRainAlarm("weather_rainAlarm"),
+		Wf_XXAlarm("wf_XXAlarm"),
+		DeviceAlarm("deviceAlarm");
+		
+		
+		private String description;
+		
+		public String getDescription(){
+			return description;
+		}
+		
+		private AlarmType(String description){
+			this.description=description;
+		}
+	}
 
 }

@@ -9,11 +9,15 @@
 	<produce.topic.number>2</produce.topic.number>
 	<topic.list>
 	   <topic>
-		 <name>environmentInfo</name>
+		 <name>EnvironmentInfo</name>
 		 <stream.number>4</stream.number>
 	  </topic>
 	  <topic>
-		<name>environmentAlarm</name>
+		<name>EnvironmentAlarm</name>
+		 <stream.number>4</stream.number>
+	 </topic>
+	 <topic>
+		<name>WeatherInfo</name>
 		 <stream.number>4</stream.number>
 	 </topic>
 </topic.list>

@@ -2,15 +2,15 @@ package com.iscas.project503.kafka.schema;
 
 public class AsynSendResponse {
 	
-	private String terminalNumber;
+	private String termID;
 	private String status;
 	private String result;
 	
-	public String getTerminalNumber() {
-		return terminalNumber;
+	public String getTermID() {
+		return termID;
 	}
-	public void setTerminalNumber(String terminalNumber) {
-		this.terminalNumber = terminalNumber;
+	public void setTermID(String termID) {
+		this.termID = termID;
 	}
 	public String getStatus() {
 		return status;

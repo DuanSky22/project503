@@ -8,16 +8,20 @@
 	</zookeeper>
 	<consumer>
 		<topic.list>
-			<topic>
-				<name>environmentInfo</name>
-				<stream.number>4</stream.number>
-			</topic>
-			<topic>
-				<name>environmentAlarm</name>
-				<stream.number>4</stream.number>
-			</topic>
+			   <topic>
+				 <name>EnvironmentInfo</name>
+				 <stream.number>4</stream.number>
+			  </topic>
+			  <topic>
+				<name>EnvironmentAlarm</name>
+				 <stream.number>4</stream.number>
+			 </topic>
+			 <topic>
+				<name>WeatherInfo</name>
+				 <stream.number>4</stream.number>
+			 </topic>
 		</topic.list>
 		<group.id>group001</group.id>
 		<serializer.class>kafka.serializer.StringEncoder</serializer.class>
-	</consumer>
+		</consumer>
 </consumer>

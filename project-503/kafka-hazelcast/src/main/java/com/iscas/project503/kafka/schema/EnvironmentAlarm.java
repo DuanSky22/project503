@@ -11,7 +11,7 @@ public class EnvironmentAlarm {
 	private String soilHumidity;
 	private String light;
 	private String CO2Concentration;
-	private AlarmInfo[] alarmInfo;
+	private AlarmInfo[] alarmInfo=new AlarmInfo[2];
 	
 	public String getStreamNumber() {
 		return streamNumber;
