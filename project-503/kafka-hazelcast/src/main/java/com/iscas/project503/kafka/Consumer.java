@@ -51,8 +51,7 @@ public class Consumer implements Runnable {
 		System.out.println("----consumer----start!");
 		ExecutorService executor = Executors.newCachedThreadPool();
 		for (KafkaStream<String, String> stream : consumerMap.get(topic)) {
-			Runnable consumerThread = new ConsumerThread(topic, stream);
-			executor.execute(consumerThread);
+			executor.execute(new Stream(stream,topic));
 		}
 		System.out.println("----consumer----done!");
 	}

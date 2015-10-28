@@ -2,14 +2,9 @@ package com.iscas.project503.hazelcast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-
-
-import java.util.concurrent.Future;
 
 import com.iscas.project503.kafka.Consumer;
 import com.iscas.project503.util.ConsumerConfigParser;

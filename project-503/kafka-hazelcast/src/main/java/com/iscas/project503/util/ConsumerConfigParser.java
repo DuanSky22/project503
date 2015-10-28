@@ -12,7 +12,7 @@ import org.dom4j.io.SAXReader;
 public class ConsumerConfigParser {
 	
 	public static void main(String args[]){
-		//ConsumerConfigParser config=ConsumerConfigParser.getInstance();
+		ConsumerConfigParser config=ConsumerConfigParser.getInstance();
 	}
 	
 	private static  ConsumerConfigParser instance=null;
@@ -59,8 +59,6 @@ public class ConsumerConfigParser {
 				else
 					prop.put(e.getName(), e.getData());
 			}
-			
-			
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}

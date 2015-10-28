@@ -17,7 +17,7 @@ public final class Project503RestString {
 	
 	public static final String UPDATE="/dataengine/redis/update";
 	
-	public static final String DELETE="/dataengine/redis/delete/";
+	public static final String DELETE="/dataengine/redis/delete";
 	
 
 }

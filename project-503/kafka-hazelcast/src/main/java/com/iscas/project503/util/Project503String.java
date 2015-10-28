@@ -5,7 +5,28 @@ public final class Project503String {
 	public static final String CREATE_TIME="createTime";
 	public static final String CONTENT="content";
 	
+	//topic
 	public static final String TOPIC="topic";
+	public static final String TOPIC_ENVIRONMENTINFO="EnvironmentInfo";
+	public static final String TOPIC_EVVIRONMENTALARM="EnvironmentAlarm";
+	public static final String TOPIC_SCALEINFO="ScaleInfo";
+	public static final String TOPIC_WEATHERINFO="WeatherInfo";
+	public static final String TOPIC_ASYNSENDRESPONSE="AsynSendResponse";
+	
+	//hazelcast
+	public static final String ENVINFO="envinfo";
+	public static final String WEATHER="weather";
+	public static final String WEATHER_KEY="weatherinfo";
+	public static final String ALARMINFO="alarminfo";
+	
+	//message
+	public static final String MESSAGE_TERM_ID="termID";
+	public static final String MESSAGE_ALARM_TYPE="alarmType";
+	public static final String MESSAGE_PLOT_ID="plotID";
+	public static final String MESSAGE_JSON_COMMA=",";
+	public static final String MESSAGE_JSON_LEFT_BRACE="{";
+	public static final String MESSAGE_JSON_RIGHT_BRACE="}";
+	
 	public static final String STREAM_NUMS="stream.nums";
 	public static final String TOPIC_COUNT="topicCount";
 	public static final String ZOOKEEPER_CONNECT="zookeeper.connect";
@@ -15,10 +36,7 @@ public final class Project503String {
 	public static final String GROUP_ID="group.id";
 	public static final String SERIALIZER_CLASS="serializer.class";
 	
-	public static final String ENVINFO="envinfo";
-	public static final String WEATHER="weather";
-	public static final String WEATHER_KEY="weatherinfo";
-	public static final String ALARMINFO="alarminfo";
+
 	
 	public static final String INNER_SPLIT=":--:";
 	public static final String MESSAGE_SPLIT="#--#";
