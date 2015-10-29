@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+	
+	<HistoricEnvInfo>
+		<colfamily>attribute</colfamily>
+	</HistoricEnvInfo>
+	
+	<HistoricAlarmInfo>
+		<colfamily>attribute</colfamily>
+	</HistoricAlarmInfo>
+	
+	<MsasureInfo>
+		<colfamily>attribute</colfamily>
+	</MsasureInfo>
+	
+	<WeatherInfo>
+		<colfamily>attribute</colfamily>
+	</WeatherInfo>
+	
+</schema>

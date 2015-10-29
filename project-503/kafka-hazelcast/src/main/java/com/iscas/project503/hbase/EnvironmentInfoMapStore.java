@@ -8,7 +8,6 @@ import com.hazelcast.core.MapStore;
 public class EnvironmentInfoMapStore implements MapStore<String, String> {
 
 	@Override
-	
 	public String load(String key) {
 		// TODO Auto-generated method stub
 		return null;

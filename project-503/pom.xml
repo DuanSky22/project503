@@ -20,6 +20,7 @@
   <modules>
   	<module>kafka-hazelcast</module>
   	<module>rest/rest</module>
+  	<module>hbase</module>
   </modules>
   
 </project>
