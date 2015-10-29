@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
@@ -29,7 +30,8 @@ public class Main {
 				admin.disableTable(tn);
 				HTableDescriptor desc=new HTableDescriptor(tn);
 				for(String colFamily : tableEntry.getValue()){
-					
+					HColumnDescriptor col=new HColumnDescriptor(colFamily);
+					desc.addFamily(col);
 				}
 				admin.createTable(desc);
 				
