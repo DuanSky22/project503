@@ -19,7 +19,7 @@ public class AlarmTopic extends Topic{
 		alarm.setAlarmDesp(MessageFactory.getNextRandomNumber());
 		alarm.setAlarmGrade(MessageFactory.getNextRandomNumber(1));
 		alarm.setAlarmId(MessageFactory.getNextRandomNumber(6));
-		alarm.setAlarmTime(MessageFactory.getCurrentDate());
+		alarm.setTime(MessageFactory.getCurrentDate());
 		alarm.setAlarmType(MessageFactory.getNextAlarmType());
 		alarm.setHandler(MessageFactory.getNextRandomAlpha());
 		alarm.setHandleStatus(MessageFactory.getNextRandomAlpha(1));
@@ -34,7 +34,7 @@ public class AlarmTopic extends Topic{
 		alarm.setAlarmDesp(MessageFactory.getNextRandomNumber());
 		alarm.setAlarmGrade(MessageFactory.getNextRandomNumber(1));
 		alarm.setAlarmId(MessageFactory.getNextRandomNumber(6));
-		alarm.setAlarmTime(MessageFactory.getCurrentDate());
+		alarm.setTime(MessageFactory.getCurrentDate());
 		alarm.setAlarmType(MessageFactory.getNextAlarmType());
 		alarm.setHandler(MessageFactory.getNextRandomAlpha());
 		alarm.setHandleStatus(MessageFactory.getNextRandomAlpha(1));

@@ -4,7 +4,7 @@ public class EnvironmentInfo {
 	
 	private String streamNumber;
 	private String termID;
-	private String timeStamp;
+	private String time;
 	private String airTemperature;
 	private String airHumidity;
 	private String soilTemperature;
@@ -25,11 +25,11 @@ public class EnvironmentInfo {
 	public void setTermID(String termID) {
 		this.termID = termID;
 	}
-	public String getTimeStamp() {
-		return timeStamp;
+	public String getTime() {
+		return time;
 	}
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public String getAirTemperature() {
 		return airTemperature;

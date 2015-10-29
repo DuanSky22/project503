@@ -18,27 +18,36 @@ public class Main {
 	
 	public static void main(String args[]){
 		Configuration config=HBaseConfiguration.create();
+		Map<String,String> map=HbaseConnParser.getInstance().getHbaseConn();
+		for(Entry<String,String> entry : map.entrySet()){
+			config.set(entry.getKey(), entry.getValue());
+		}
+		
 		Connection con;
 		try {
 			con = ConnectionFactory.createConnection(config);
 			Admin admin=con.getAdmin();
 			Map<String,List<String>> schemas=HbaseSchemaParser.getInstance().getHbaseSchema();
-			HTableDescriptor[] listTables=admin.listTables();
 			for(Entry<String,List<String>> tableEntry : schemas.entrySet()){
 				String tableName=tableEntry.getKey();
 				TableName tn=TableName.valueOf(tableName);
-				admin.disableTable(tn);
+				if(admin.tableExists(tn)){
+					admin.disableTable(tn);
+					admin.deleteTable(tn);
+				}
 				HTableDescriptor desc=new HTableDescriptor(tn);
 				for(String colFamily : tableEntry.getValue()){
 					HColumnDescriptor col=new HColumnDescriptor(colFamily);
 					desc.addFamily(col);
 				}
 				admin.createTable(desc);
-				
 			}
-			
-			TableName[] tableName
-			
+			TableName[] tableNames=admin.listTableNames();
+			System.out.println("=================table been created=========================");
+			for(TableName tableName : tableNames){
+				System.out.println(tableName.getNameAsString());
+			}
+			System.out.println("=================table been created=========================");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

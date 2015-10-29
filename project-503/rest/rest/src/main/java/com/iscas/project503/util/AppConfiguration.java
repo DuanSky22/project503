@@ -1,4 +1,4 @@
-package com.iscas.project503.config;
+package com.iscas.project503.util;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

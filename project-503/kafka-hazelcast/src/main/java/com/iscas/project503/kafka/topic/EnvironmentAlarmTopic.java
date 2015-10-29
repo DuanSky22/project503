@@ -23,7 +23,7 @@ public class EnvironmentAlarmTopic extends Topic {
 		ea.setSoilTemperature(MessageFactory.getNextRandomNumber(2));
 		ea.setStreamNumber(MessageFactory.getNextRandomNumber(6));
 		ea.setTermID((termID++)+"");
-		ea.setTimeStamp(MessageFactory.getCurrentDate());
+		ea.setTime(MessageFactory.getCurrentDate());
 		AlarmInfo[] list=ea.getAlarmInfo();
 		for(int i=0;i<list.length;i++){
 			list[i]=AlarmTopic.newAlarmInfo();

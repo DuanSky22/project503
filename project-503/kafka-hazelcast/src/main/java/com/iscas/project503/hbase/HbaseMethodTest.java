@@ -1,10 +1,6 @@
 package com.iscas.project503.hbase;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-
-import com.iscas.project503.util.Project503String;
 
 /**
  * 测试类;

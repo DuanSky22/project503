@@ -3,7 +3,7 @@ package com.iscas.project503.kafka.schema;
 public class AlarmInfo {
 	
 	private String alarmId;
-	private String alarmTime;
+	private String time;
 	private String alarmGrade;
 	private String alarmType;
 	private String alarmDesp;
@@ -17,11 +17,11 @@ public class AlarmInfo {
 	public void setAlarmId(String alarmId) {
 		this.alarmId = alarmId;
 	}
-	public String getAlarmTime() {
-		return alarmTime;
+	public String getTime() {
+		return time;
 	}
-	public void setAlarmTime(String alarmTime) {
-		this.alarmTime = alarmTime;
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public String getAlarmGrade() {
 		return alarmGrade;

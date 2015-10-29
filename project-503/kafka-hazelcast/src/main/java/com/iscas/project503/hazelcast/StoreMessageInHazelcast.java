@@ -5,7 +5,11 @@ import static com.iscas.project503.util.Project503String.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.hazelcast.config.Config;
+import com.hazelcast.config.MapConfig;
+import com.hazelcast.config.MapStoreConfig;
 import com.hazelcast.core.HazelcastInstance;
+import com.iscas.project503.hazelcast.mapstore.EnvInfoMapStore;
 import com.iscas.project503.kafka.topic.TopicFactory;
 import com.iscas.project503.util.Project503HazelcastClient;
 
@@ -44,8 +48,10 @@ public class StoreMessageInHazelcast implements StoreMessage{
 	public void storeEnvironmentAlarm(String message){
 		if(message==null || message.length()==0) return ;
 		//store envinfo in hazelcast
-		Map<String,String> envinfo=client.getMap(TH_EVVIRONMENTALARM);
-		envinfo.put(findKey(MESSAGE_TERM_ID,message), message);
+		//below we can not store in envinfo map. below is a new map!
+		//Map<String,String> envinfo=client.getMap(TH_EVVIRONMENTALARM);
+		Map<String,String> envinfo=client.getMap(ENVINFO);
+		envinfo.put(findKey(MESSAGE_TERM_ID,removeAlarmInEnvinfo(message)), removeAlarmInEnvinfo(message));
 		//store alarm in hazelcast
 		storeAlarm(message);
 	}
@@ -84,7 +90,7 @@ public class StoreMessageInHazelcast implements StoreMessage{
 	public void storeWeatherInfo(String message){
 		if(message==null || message.length()==0) return;
 		Map<String,String> map=client.getMap(WEATHER);
-		map.put(findKey(MESSAGE_TERM_ID,message), message);
+		//map.put(findKey(MESSAGE_TERM_ID,message), message); //TODO caizheng modified genious!
 		map.put(WEATHER_KEY,message);
 	}
 	
@@ -106,6 +112,18 @@ public class StoreMessageInHazelcast implements StoreMessage{
 			key=message.substring(start+keyName.length()+3,Math.min(a, b)-1);
 		}
 		return key;
+	}
+	
+	private String removeAlarmInEnvinfo(String message){
+		String result="";
+		int start=message.indexOf(ALARMINFO); 
+		if(start==-1)
+			return result;
+		int end=message.indexOf(MESSAGE_JSON_RIGHT_SQUARE_BRACKET,start);
+		if(message.charAt(end+1)==',')
+			end++;
+		result=message.substring(0,start)+message.substring(end+1);
+		return result;
 	}
 	
 	public static void main(String args[]){

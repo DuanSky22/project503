@@ -13,9 +13,9 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.iscas.project503.config.AppConfiguration;
+import com.iscas.project503.util.AppConfiguration;
 
-public class Main {
+public class JettyServer {
 	public static void main(String[] args) throws Exception {
 		Server server = new Server(getPort());
 		server.setHandler(getServletContextHandler(getContext()));
@@ -25,7 +25,7 @@ public class Main {
 
 	private static int getPort() throws IOException {
 		Properties prop = new Properties();
-		prop.load(new InputStreamReader(Main.class.getClassLoader()
+		prop.load(new InputStreamReader(JettyServer.class.getClassLoader()
 				.getResourceAsStream("application.properties")));
 		return Integer.valueOf(prop.getProperty("server.port", "9090"));
 	}

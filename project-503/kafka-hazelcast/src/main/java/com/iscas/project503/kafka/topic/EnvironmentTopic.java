@@ -27,7 +27,7 @@ public class EnvironmentTopic extends Topic{
 		envinfo.setSoilTemperature(MessageFactory.getNextRandomNumber(2));
 		envinfo.setStreamNumber(MessageFactory.getNextRandomAlpha(6));
 		envinfo.setTermID((termID++)+"");
-		envinfo.setTimeStamp(MessageFactory.getCurrentDate());
+		envinfo.setTime(MessageFactory.getCurrentDate());
 		ObjectMapper mapper=new ObjectMapper();
 		String result="";
 		try {

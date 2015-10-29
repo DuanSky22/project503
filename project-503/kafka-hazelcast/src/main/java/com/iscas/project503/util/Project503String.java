@@ -22,6 +22,15 @@ public final class Project503String {
 	public static final String WEATHER_KEY="weatherinfo";
 	public static final String ALARMINFO="alarmInfo";
 	
+	//hbase
+	public static final String HISTORICENVINFO="HistoricEnvInfo";
+	public static final String HISTORICALARMINFO="HistoricAlarmInfo";
+	public static final String MEASUREINFO="MsasureInfo";
+	public static final String WEATHERINFO="WeatherInfo";
+	
+	public static final String COLFUMILY="attribute";
+	public static final String ID_TIME_SPLIT="#";
+	
 	//message
 	public static final String MESSAGE_TERM_ID="termID";
 	public static final String MESSAGE_ALARM_TYPE="alarmType";
