@@ -8,6 +8,7 @@ import com.hazelcast.core.MapStore;
 public class MsasureInfoIntoHBase implements MapStore<String,String> {
 
 	private String tableName = "MsasureInfo";
+	private String columnFamily = "PlotID";
 	public MsasureInfoIntoHBase() {
 		super();
 	}
@@ -35,7 +36,7 @@ public class MsasureInfoIntoHBase implements MapStore<String,String> {
 	 * */
 	public void store(String key, String value) {
 		// TODO Auto-generated method stub
-		StoreImplement.storeMessage(tableName,key,value);
+		StoreImplement.storeMessage(tableName,key,columnFamily,value);
 	}
 
 	public void storeAll(Map<String, String> map) {

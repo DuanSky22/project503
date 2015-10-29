@@ -5,49 +5,46 @@ import java.util.Map;
 
 import com.hazelcast.core.MapStore;
 
-public class HistoricAlarmInfoIntoHBase implements MapStore<String,String> {
+//String 是termID
+//Map<alarmType, alarmInfo>
+public class HistoricAlarmInfoIntoHBase implements MapStore<String,Map<String,String>>{
 
 	private String tableName = "HistoricEnvInfo";
+	private String columnFamily = "termID_alarmType";
 	public HistoricAlarmInfoIntoHBase() {
 		super();
 	}
-
-	public String load(String key) {
+	@Override
+	public Map<String, String> load(String key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	public Map<String, String> loadAll(Collection<String> keys) {
+	@Override
+	public Map<String, Map<String, String>> loadAll(Collection<String> keys) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	@Override
 	public Iterable<String> loadAllKeys() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	//在这个方法中调用的是
-	// TODO Auto-generated constructor stub
-	/**
-	 *  在value中包含的是dataMessage,是生产者中产生的json的字符串,在这个方法中解析出相应的属性,
-	 *        得到对应的   属相
-	 * */
-	public void store(String key, String value) {
-		// TODO Auto-generated method stub
-		StoreImplement.storeMessage(tableName,key,value);
-	}
-
-	public void storeAll(Map<String, String> map) {
+	@Override
+	public void store(String key, Map<String, String> value) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
+	public void storeAll(Map<String, Map<String, String>> map) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
 	public void delete(String key) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
 	public void deleteAll(Collection<String> keys) {
 		// TODO Auto-generated method stub
 		

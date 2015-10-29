@@ -60,7 +60,7 @@ public class HBaseOperations {
 	 *                        ,soilTemperature:10.05,streamNumber:123,termID:001,timeStamp:201545455545]
 	 * */
 	public static List<List<String>> selectInfo(String tableName,
-			String beginTime, String endTime, String[] termID) {
+			String rowKey1, String rowKey2, String[] termID) {
         
 		Scan scan = new Scan();
 		HTable table;
@@ -69,12 +69,52 @@ public class HBaseOperations {
 			System.out.println(termID[i]);
 			 List<String> infoList = new ArrayList<String>();
 			String selectInfo = "";
-			String startRowKey = termID[i] + Project503String.INNER_SPLIT
-					+ beginTime;
+			scan.setStartRow(rowKey1.getBytes());
+			scan.setStopRow(rowKey2.getBytes());
+			ResultScanner rs = null;
+			try {
+				table = new HTable(config, Bytes.toBytes(tableName));
+				rs = table.getScanner(scan);
+				for (Result r : rs) {
+					for (KeyValue kv : r.list()) {
+						selectInfo += Bytes.toString(kv.getQualifier()) + ":" +Bytes.toString(kv.getValue()) + ",";
+						/*System.out.println("qualifier:"
+								+ Bytes.toString(kv.getQualifier()));
+						System.out.println("value:"
+								+ Bytes.toString(kv.getValue()));*/
+					}
+				}
+				selectInfo = selectInfo.substring(0, selectInfo.length()-1);
+				System.out.println(selectInfo);
+				infoList.add(selectInfo);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				rs.close();
+			}
+			resultList.add(infoList);
+		}
+		return resultList;
+	}
+
+	//针对报警信息进行查询;
+	public static List<List<String>> selectInfo(String tableName,
+			String rowKey1, String rowKey2, String[] termID,String alarmType) {
+        
+		Scan scan = new Scan();
+		HTable table;
+		// String requestRowkey = null;
+		for (int i = 0; i < termID.length; i++) {
+			System.out.println(termID[i]);
+			 List<String> infoList = new ArrayList<String>();
+			String selectInfo = "";
+/*			String startRowKey = termID[i] + Project503String.INNER_SPLIT
+					+ beginTime  + Project503String.INNER_SPLIT + alarmType;
 			String endRowKey = termID[i] + Project503String.INNER_SPLIT
-					+ endTime + " 0";
-			scan.setStartRow(startRowKey.getBytes());
-			scan.setStopRow(endRowKey.getBytes());
+					+ endTime  + Project503String.INNER_SPLIT + alarmType+ " 0";
+*/			scan.setStartRow(rowKey1.getBytes());
+			scan.setStopRow(rowKey2.getBytes());
 			ResultScanner rs = null;
 			try {
 				table = new HTable(config, Bytes.toBytes(tableName));
@@ -149,12 +189,10 @@ public class HBaseOperations {
 	}
 
 	// 根据表明 和 rowkeys 进行删除.
-	public static Boolean deleteRowCol(String tableName, String beginTime,String endTime,String termID) {
-		String startRowKey = termID + Project503String.INNER_SPLIT + beginTime;
-		String endRowKey = termID + Project503String.INNER_SPLIT + endTime;
+	public static Boolean deleteRowCol(String tableName, String rowKey1,String r0wKey2,String termID) {
 		Scan scan = new Scan();
-		scan.setStartRow(startRowKey.getBytes());
-		scan.setStopRow(endRowKey.getBytes());
+		scan.setStartRow(rowKey1.getBytes());
+		scan.setStopRow(r0wKey2.getBytes());
 		ResultScanner rs = null;
 		try {
 			HTable table = new HTable(config, Bytes.toBytes(tableName));

@@ -8,6 +8,7 @@ import com.hazelcast.core.MapStore;
 public class RecoveryInfoIntoHBase implements MapStore<String,String> {
 
 	private String tableName = "RecoveryInfo";
+	private String columnfamily = "termID";
 	public RecoveryInfoIntoHBase() {
 		super();
 	}
@@ -35,7 +36,7 @@ public class RecoveryInfoIntoHBase implements MapStore<String,String> {
 	 * */
 	public void store(String key, String value) {
 		// TODO Auto-generated method stub
-		StoreImplement.storeMessage(tableName,key,value);
+		StoreImplement.storeMessage(tableName,key,columnfamily,value);
 	}
 
 	public void storeAll(Map<String, String> map) {
