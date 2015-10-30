@@ -97,7 +97,7 @@ public class HbaseService {
 			SingleColumnValueFilter scvf = new SingleColumnValueFilter(  
 			        Bytes.toBytes(colFamily),   
 			        Bytes.toBytes(column),   
-			        CompareFilter.CompareOp.NOT_EQUAL,   
+			        CompareFilter.CompareOp.EQUAL,   
 			        new SubstringComparator(value));  
 			scvf.setFilterIfMissing(false);  
 			scvf.setLatestVersionOnly(true); // OK  

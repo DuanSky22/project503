@@ -58,4 +58,20 @@ public class HbaseFindController {
 		}	
 		return result;
 	}
+	
+	@RequestMapping(ALARMINFO)
+	public List<String> queryHistoricalAlarmInfo(
+			@RequestParam(value = "beginTime", required = true)String beginTime,
+			@RequestParam(value = "endTime", required = true)String endTime,
+			@RequestParam(value = "termID[]", required = true)String [] termID,
+			@RequestParam(value = "alarmType", required = true)String alarmType){
+		List<String> result=new ArrayList<String>();
+		for(String id : termID){
+			String begin=id+ID_TIME_SPLIT+beginTime;
+			String end=id+ID_TIME_SPLIT+endTime;
+			String single=HbaseService.select(HISTORICALARMINFO, begin, end,ATTRIBUTE,"alarmType",alarmType);	
+			if(single!=null) result.add(single);
+		}	
+		return result;
+	}
 }

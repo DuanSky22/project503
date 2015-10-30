@@ -22,6 +22,8 @@ public final class Project503RestString {
 	public static final String WEATHERINFO="WeatherInfo";
 	public static final String RECORDINFO="recordinfo";
 	
+	public static final String ATTRIBUTE="attribute";
+	
 	public static final String ID_TIME_SPLIT="#";
 	
 	public static final String HBASE_FIND="dataengine/hbase/find";
