@@ -19,6 +19,11 @@ public class HBaseTableUtil {
 	private static Connection connection;
 	private static List<List<String>> resultList = new ArrayList<List<String>>();
 
+	public static void main(String[] args) {
+//		deleteTable("HistoricAlarmInfo");
+	    String[] family = {"attribute"};
+        createTable("WeatherInfo1",family);
+	}
 	static {
 		config = HBaseConfiguration.create();
 		config.set("hbase.zookeeper.quorum", "133.133.134.130");

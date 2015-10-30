@@ -7,8 +7,8 @@ import com.hazelcast.core.MapStore;
 
 public class HistoricEnvInfoIntoHBase implements MapStore<String,String> {
 
-	private String tableName = "HistoricAlarmInfo";
-	private String columnFamily = "termID";
+	private String tableName = "HistoricEnvInfo1";
+	private String columnFamily = "attribute";
 	public HistoricEnvInfoIntoHBase() {
 		super();
 	}

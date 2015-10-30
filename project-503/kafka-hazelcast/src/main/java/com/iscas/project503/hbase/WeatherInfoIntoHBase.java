@@ -7,8 +7,8 @@ import com.hazelcast.core.MapStore;
 
 public class WeatherInfoIntoHBase implements MapStore<String,String> {
 
-	private String tableName = "WeatherInfo";
-	private String columnFamily = "Weather";
+	private String tableName = "WeatherInfo1";
+	private String columnFamily = "attribute";
 	
 	public WeatherInfoIntoHBase() {
 		super();

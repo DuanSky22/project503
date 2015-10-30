@@ -1,7 +1,9 @@
 package com.iscas.project503.hbase;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.hazelcast.core.MapStore;
 
@@ -9,8 +11,8 @@ import com.hazelcast.core.MapStore;
 //Map<alarmType, alarmInfo>
 public class HistoricAlarmInfoIntoHBase implements MapStore<String,Map<String,String>>{
 
-	private String tableName = "HistoricEnvInfo";
-	private String columnFamily = "termID_alarmType";
+	private String tableName = "HistoricAlarmInfo1";
+	private String columnFamily = "attribute";
 	public HistoricAlarmInfoIntoHBase() {
 		super();
 	}
@@ -32,7 +34,9 @@ public class HistoricAlarmInfoIntoHBase implements MapStore<String,Map<String,St
 	@Override
 	public void store(String key, Map<String, String> value) {
 		// TODO Auto-generated method stub
-		
+		for(Map.Entry<String, String> entry:value.entrySet()){    
+			StoreImplement.storeMessage(tableName,key,columnFamily,entry.getValue());
+		}   
 	}
 	@Override
 	public void storeAll(Map<String, Map<String, String>> map) {
