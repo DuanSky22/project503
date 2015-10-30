@@ -5,11 +5,11 @@ import java.util.Map;
 
 import com.hazelcast.core.MapStore;
 
-public class RecoveryInfoIntoHBase implements MapStore<String,String> {
+public class MeasureInfoMapStore implements MapStore<String,String> {
 
-	private String tableName = "RecoveryInfo";
-	private String columnfamily = "termID";
-	public RecoveryInfoIntoHBase() {
+	private String tableName = "MsasureInfo";
+	private String columnFamily = "PlotID";
+	public MeasureInfoMapStore() {
 		super();
 	}
 
@@ -36,7 +36,7 @@ public class RecoveryInfoIntoHBase implements MapStore<String,String> {
 	 * */
 	public void store(String key, String value) {
 		// TODO Auto-generated method stub
-		StoreImplement.storeMessage(tableName,key,columnfamily,value);
+		StoreImplement.storeMessage(tableName,key,columnFamily,value);
 	}
 
 	public void storeAll(Map<String, String> map) {

@@ -9,11 +9,11 @@ import com.hazelcast.core.MapStore;
 
 //String 是termID
 //Map<alarmType, alarmInfo>
-public class HistoricAlarmInfoIntoHBase implements MapStore<String,Map<String,String>>{
+public class HistoricAlarmInfoInMapStore implements MapStore<String,Map<String,String>>{
 
 	private String tableName = "HistoricAlarmInfo1";
 	private String columnFamily = "attribute";
-	public HistoricAlarmInfoIntoHBase() {
+	public HistoricAlarmInfoInMapStore() {
 		super();
 	}
 	@Override

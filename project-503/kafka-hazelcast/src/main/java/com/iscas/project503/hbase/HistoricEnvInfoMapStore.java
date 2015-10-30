@@ -5,11 +5,11 @@ import java.util.Map;
 
 import com.hazelcast.core.MapStore;
 
-public class MsasureInfoIntoHBase implements MapStore<String,String> {
+public class HistoricEnvInfoMapStore implements MapStore<String,String> {
 
-	private String tableName = "MsasureInfo";
-	private String columnFamily = "PlotID";
-	public MsasureInfoIntoHBase() {
+	private String tableName = "HistoricEnvInfo1";
+	private String columnFamily = "attribute";
+	public HistoricEnvInfoMapStore() {
 		super();
 	}
 

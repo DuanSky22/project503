@@ -5,12 +5,12 @@ import java.util.Map;
 
 import com.hazelcast.core.MapStore;
 
-public class WeatherInfoIntoHBase implements MapStore<String,String> {
+public class WeatherInfoMapStore implements MapStore<String,String> {
 
 	private String tableName = "WeatherInfo1";
 	private String columnFamily = "attribute";
 	
-	public WeatherInfoIntoHBase() {
+	public WeatherInfoMapStore() {
 		super();
 	}
 

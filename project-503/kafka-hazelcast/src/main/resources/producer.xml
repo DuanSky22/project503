@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kafka-producer>
-	<metadata.broker.list>133.133.61.113:9092</metadata.broker.list>
+	<metadata.broker.list>133.133.61.115:9092</metadata.broker.list>
 	<serializer.class>kafka.serializer.StringEncoder</serializer.class>
 	<key.serializer.class>kafka.serializer.StringEncoder</key.serializer.class>
 	<partition.class>kafka.producer.DefaultPartitioner</partition.class>
 	<request.required.acks>-1</request.required.acks>
-	<produce.separater.time>1000</produce.separater.time>
+	<produce.separater.time>100</produce.separater.time>
 	<topic.list>
 	   <topic>
 		 <name>EnvironmentInfo</name>

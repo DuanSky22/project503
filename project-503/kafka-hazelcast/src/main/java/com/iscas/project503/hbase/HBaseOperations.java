@@ -66,7 +66,7 @@ public class HBaseOperations {
 		HTable table;
 		// String requestRowkey = null;
 		for (int i = 0; i < termID.length; i++) {
-			System.out.println(termID[i]);
+			//System.out.println(termID[i]);
 			 List<String> infoList = new ArrayList<String>();
 			String selectInfo = "";
 			scan.setStartRow(rowKey1.getBytes());
@@ -85,51 +85,7 @@ public class HBaseOperations {
 					}
 				}
 				selectInfo = selectInfo.substring(0, selectInfo.length()-1);
-				System.out.println(selectInfo);
-				infoList.add(selectInfo);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-				rs.close();
-			}
-			resultList.add(infoList);
-		}
-		return resultList;
-	}
-
-	//针对报警信息进行查询;
-	public static List<List<String>> selectInfo(String tableName,
-			String rowKey1, String rowKey2, String[] termID,String alarmType) {
-        
-		Scan scan = new Scan();
-		HTable table;
-		// String requestRowkey = null;
-		for (int i = 0; i < termID.length; i++) {
-			System.out.println(termID[i]);
-			 List<String> infoList = new ArrayList<String>();
-			String selectInfo = "";
-/*			String startRowKey = termID[i] + Project503String.INNER_SPLIT
-					+ beginTime  + Project503String.INNER_SPLIT + alarmType;
-			String endRowKey = termID[i] + Project503String.INNER_SPLIT
-					+ endTime  + Project503String.INNER_SPLIT + alarmType+ " 0";
-*/			scan.setStartRow(rowKey1.getBytes());
-			scan.setStopRow(rowKey2.getBytes());
-			ResultScanner rs = null;
-			try {
-				table = new HTable(config, Bytes.toBytes(tableName));
-				rs = table.getScanner(scan);
-				for (Result r : rs) {
-					for (KeyValue kv : r.list()) {
-						selectInfo += Bytes.toString(kv.getQualifier()) + ":" +Bytes.toString(kv.getValue()) + ",";
-						/*System.out.println("qualifier:"
-								+ Bytes.toString(kv.getQualifier()));
-						System.out.println("value:"
-								+ Bytes.toString(kv.getValue()));*/
-					}
-				}
-				selectInfo = selectInfo.substring(0, selectInfo.length()-1);
-				System.out.println(selectInfo);
+				//System.out.println(selectInfo);
 				infoList.add(selectInfo);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
