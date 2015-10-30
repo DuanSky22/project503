@@ -27,9 +27,9 @@ public class JsonToMapParser {
 		if(start==-1)
 			return key;
 		int a,b;
-		if((a=message.indexOf(MESSAGE_JSON_COMMA,start))!=-1 && (b=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,start))!=-1){
-			key=message.substring(start+keyName.length()+3,Math.min(a, b)-1);
-		}
+		a=message.indexOf(MESSAGE_JSON_COMMA,start);
+		b=message.indexOf(MESSAGE_JSON_RIGHT_BRACE,start);
+		key=message.substring(start+keyName.length()+3,(a==-1 ? b : a)-1);
 		return key;
 	}
 }

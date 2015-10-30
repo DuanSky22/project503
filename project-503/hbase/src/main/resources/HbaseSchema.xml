@@ -9,9 +9,9 @@
 		<colfamily>attribute</colfamily>
 	</HistoricAlarmInfo>
 	
-	<MeasureInfo>
+	<MsasureInfo>
 		<colfamily>attribute</colfamily>
-	</MeasureInfo>
+	</MsasureInfo>
 	
 	<WeatherInfo>
 		<colfamily>attribute</colfamily>
