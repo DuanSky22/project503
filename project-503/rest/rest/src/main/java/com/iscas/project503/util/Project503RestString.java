@@ -20,6 +20,9 @@ public final class Project503RestString {
 	public static final String HISTORICALARMINFO="HistoricAlarmInfo";
 	public static final String MEASUREINFO="MeasureInfo";
 	public static final String WEATHERINFO="WeatherInfo";
+	public static final String RECORDINFO="recordinfo";
+	
+	public static final String ID_TIME_SPLIT="#";
 	
 	public static final String HBASE_FIND="dataengine/hbase/find";
 	public static final String HBASE_DELETE="dataengine/hbase/delete";
