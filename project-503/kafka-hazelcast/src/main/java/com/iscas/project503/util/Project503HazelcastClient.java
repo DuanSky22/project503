@@ -13,7 +13,8 @@ public class Project503HazelcastClient {
 	public static HazelcastInstance getInstance(){
 		if(instance==null){
 			ClientConfig clientConfig=new ClientConfig();
-			clientConfig.getNetworkConfig().addAddress("localhost","133.133.133.75"); //TODO maybe we need a configuration!
+			String[] serverAddresses=HazelcastServerParser.getInstance().getServerAddresses();
+			clientConfig.getNetworkConfig().addAddress(serverAddresses);
 			instance=HazelcastClient.newHazelcastClient(clientConfig);
 		}
 		return instance;
