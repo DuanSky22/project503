@@ -128,9 +128,9 @@
         <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>
         <map-store enabled="true"> 
         	<class-name>com.iscas.project503.hazelcast.mapstore.EnvInfoMapStore</class-name> 
-        	<write-delay-seconds>60</write-delay-seconds> 
+        	<write-delay-seconds>0</write-delay-seconds> 
         	<write-batch-size>1000</write-batch-size> 
-        	<write-coalescing>true</write-coalescing>
+        	<write-coalescing>false</write-coalescing>
         </map-store>
     </map>
     
@@ -147,9 +147,9 @@
         <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>
         <map-store enabled="true"> 
         	<class-name>com.iscas.project503.hazelcast.mapstore.WeatherInfoMapStore</class-name> 
-        	<write-delay-seconds>60</write-delay-seconds> 
-        	<write-batch-size>1000</write-batch-size> 
-        	<write-coalescing>true</write-coalescing>
+        	<write-delay-seconds>0</write-delay-seconds> 
+        	<write-batch-size>10</write-batch-size> 
+        	<write-coalescing>false</write-coalescing>
         </map-store>
     </map>
     
@@ -166,9 +166,9 @@
         <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>
         <map-store enabled="true"> 
         	<class-name>com.iscas.project503.hazelcast.mapstore.AlarmInfoMapStore</class-name> 
-        	<write-delay-seconds>60</write-delay-seconds> 
-        	<write-batch-size>1000</write-batch-size> 
-        	<write-coalescing>true</write-coalescing>
+        	<write-delay-seconds>0</write-delay-seconds> 
+        	<write-batch-size>10</write-batch-size> 
+        	<write-coalescing>false</write-coalescing>
         </map-store>
     </map>
     
@@ -185,9 +185,9 @@
         <merge-policy>com.hazelcast.map.merge.PutIfAbsentMapMergePolicy</merge-policy>
         <map-store enabled="true"> 
         	<class-name>com.iscas.project503.hazelcast.mapstore.MeasureMapStore</class-name> 
-        	<write-delay-seconds>60</write-delay-seconds> 
+        	<write-delay-seconds>0</write-delay-seconds> 
         	<write-batch-size>1000</write-batch-size> 
-        	<write-coalescing>true</write-coalescing>
+        	<write-coalescing>false</write-coalescing>
         </map-store>
     </map>
     

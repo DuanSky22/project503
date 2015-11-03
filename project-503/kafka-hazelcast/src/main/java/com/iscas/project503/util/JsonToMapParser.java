@@ -8,13 +8,20 @@ import java.util.Map;
 
 public class JsonToMapParser {
 	
+	/*
+	 * find bugs 01
+	 * duansky 
+	 * 2015-11-03
+	 * fixed!
+	 */
 	public static Map<String,String> parseJsonToMap(String json){
 		Map<String,String> map=new HashMap<String,String>();
 		json=json.replaceAll("\\{", "").replaceAll("\\}", "").replaceAll("\"", ""); //tip don't forget transfer \\!
 		String[] pairs=json.split(",");
 		for(String pair : pairs){
-			String[] keyValue=pair.split(":");
-			map.put(keyValue[0], keyValue[1]);
+			//String[] keyValue=pair.split(":"); here we may get the wrong answer when the value contains colon!
+			int colonPosition=pair.indexOf(':');
+			map.put(pair.substring(0,colonPosition), pair.substring(colonPosition+1));
 		}
 		return map;
 	}

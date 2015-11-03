@@ -43,6 +43,8 @@ public class Main {
 			Admin admin=con.getAdmin();
 			Map<String,List<String>> schemas=HbaseSchemaParser.getInstance().getHbaseSchema();
 			
+			System.out.println("=================creating table...=========================");
+			
 			for(Entry<String,List<String>> tableEntry : schemas.entrySet()){
 				String tableName=tableEntry.getKey();
 				TableName tn=TableName.valueOf(tableName);
@@ -57,13 +59,9 @@ public class Main {
 					desc.addFamily(col);
 				}
 				admin.createTable(desc);
+				System.out.println(desc.getNameAsString());
 			}
-			TableName[] tableNames=admin.listTableNames();
-			System.out.println("=================table been created=========================");
-			for(TableName tableName : tableNames){
-				System.out.println(tableName.getNameAsString());
-			}
-			System.out.println("=================table been created=========================");
+			System.out.println("=================create table done!=========================");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
