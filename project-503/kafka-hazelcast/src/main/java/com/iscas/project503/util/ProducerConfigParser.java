@@ -20,9 +20,8 @@ public class ProducerConfigParser {
 	
 	public  static ProducerConfigParser getInstance(){
 		if(instance==null)
-			return new ProducerConfigParser();
-		else
-			return instance;
+			instance = new ProducerConfigParser();
+		return instance;
 	}
 	@SuppressWarnings("unchecked")
 	private ProducerConfigParser(){

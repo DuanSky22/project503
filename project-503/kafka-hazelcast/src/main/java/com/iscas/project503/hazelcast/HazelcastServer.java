@@ -26,6 +26,7 @@ public class HazelcastServer {
 		envinfoMapStoreConfig.setEnabled(true);
 		envinfoMapStoreConfig.setWriteDelaySeconds(0);
 		envinfoMapStoreConfig.setWriteBatchSize(100);
+		envinfoMapStoreConfig.setWriteCoalescing(false);
 		envinfoMapStoreConfig.setClassName("com.iscas.project503.hazelcast.mapstore.EnvInfoMapStore");
 		envinfoMapStoreConfig.setImplementation(new EnvInfoMapStore());
         

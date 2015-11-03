@@ -31,9 +31,8 @@ public class HbaseConnection {
 	
 	public static HbaseConnection getInstance(){
 		if(instance==null)
-			return new HbaseConnection();
-		else
-			return instance;
+			instance = new HbaseConnection();
+		return instance;
 	}
 	
 	public Connection getHbaseConnection(){

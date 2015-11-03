@@ -50,9 +50,8 @@ public class HbaseSchemaParser {
 	
 	public static HbaseSchemaParser getInstance(){
 		if(instance==null)
-			return new HbaseSchemaParser();
-		else
-			return instance;
+			instance = new HbaseSchemaParser();
+		return instance;
 	}
 
 	public Map<String,List<String>> getHbaseSchema(){

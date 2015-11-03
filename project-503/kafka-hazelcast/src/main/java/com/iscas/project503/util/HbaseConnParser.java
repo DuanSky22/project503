@@ -21,9 +21,8 @@ public class HbaseConnParser {
 	
 	public static HbaseConnParser getInstance(){
 		if(instance==null)
-			return new HbaseConnParser();
-		else
-			return instance;
+			instance = new HbaseConnParser();
+		return instance;
 	}
 	
 	private void parser(){

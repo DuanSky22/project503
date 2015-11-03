@@ -18,9 +18,8 @@ public class HazelcastServerParser {
 	
 	public static HazelcastServerParser getInstance(){
 		if(instance == null)
-			return new HazelcastServerParser();
-		else
-			return instance;
+			instance = new HazelcastServerParser();
+		return instance;
 	}
 	
 	private HazelcastServerParser(){

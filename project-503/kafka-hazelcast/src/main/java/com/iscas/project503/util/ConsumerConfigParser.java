@@ -66,9 +66,8 @@ public class ConsumerConfigParser {
 	
 	public static  ConsumerConfigParser getInstance(){
 		if(instance==null)
-			return new ConsumerConfigParser();
-		else
-			return instance;
+			instance= new ConsumerConfigParser();
+		return instance;
 	}
 	
 	public Properties getConsumerConfig(){

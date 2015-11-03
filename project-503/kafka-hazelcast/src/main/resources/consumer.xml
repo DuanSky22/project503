@@ -8,6 +8,14 @@
 	</zookeeper>
 	<consumer>
 		<topic.list>
+			<topic>
+				<name>WeatherInfo</name>
+				 <stream.number>4</stream.number>
+			 </topic>
+			 <topic>
+				<name>ScaleInfo</name>
+				 <stream.number>4</stream.number>
+			 </topic>
 			   <topic>
 				 <name>EnvironmentInfo</name>
 				 <stream.number>4</stream.number>

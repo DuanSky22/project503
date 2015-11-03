@@ -7,13 +7,20 @@
 	<request.required.acks>-1</request.required.acks>
 	<produce.separater.time>1000</produce.separater.time>
 	<topic.list>
-
 			 <topic>
 				<name>WeatherInfo</name>
 				 <stream.number>4</stream.number>
 			 </topic>
 			 <topic>
 				<name>ScaleInfo</name>
+				 <stream.number>4</stream.number>
+			 </topic>
+			   <topic>
+				 <name>EnvironmentInfo</name>
+				 <stream.number>4</stream.number>
+			  </topic>
+			  <topic>
+				<name>EnvironmentAlarm</name>
 				 <stream.number>4</stream.number>
 			 </topic>
 		</topic.list>
