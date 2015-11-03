@@ -10,6 +10,7 @@ import com.hazelcast.config.MapConfig;
 import com.hazelcast.config.MapStoreConfig;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.instance.GroupProperties.GroupProperty;
 import com.iscas.project503.hazelcast.mapstore.AlarmInfoMapStore;
 import com.iscas.project503.hazelcast.mapstore.EnvInfoMapStore;
 import com.iscas.project503.hazelcast.mapstore.MeasureMapStore;
@@ -18,6 +19,7 @@ import com.iscas.project503.hazelcast.mapstore.WeatherInfoMapStore;
 public class HazelcastServer {
 	
 	public static void main(String args[]){
+		
 		/*
 		 * find bugs 02
 		 * duansky
