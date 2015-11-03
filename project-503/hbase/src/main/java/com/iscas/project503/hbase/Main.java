@@ -13,26 +13,42 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Table;
 
 public class Main {
+	public static Configuration config=null;
+	public static Connection con=null;
 	
-	public static void main(String args[]){
-		Configuration config=HBaseConfiguration.create();
+	static {
+		config=HBaseConfiguration.create();
 		Map<String,String> map=HbaseConnParser.getInstance().getHbaseConn();
 		for(Entry<String,String> entry : map.entrySet()){
 			config.set(entry.getKey(), entry.getValue());
 		}
-		
-		Connection con;
 		try {
 			con = ConnectionFactory.createConnection(config);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String args[]){
+		Main.createTables();
+		//Main.deleteAllTables();
+	}
+	
+	public static void createTables(){
+		
+		try {
 			Admin admin=con.getAdmin();
 			Map<String,List<String>> schemas=HbaseSchemaParser.getInstance().getHbaseSchema();
+			
 			for(Entry<String,List<String>> tableEntry : schemas.entrySet()){
 				String tableName=tableEntry.getKey();
 				TableName tn=TableName.valueOf(tableName);
 				if(admin.tableExists(tn)){
-					admin.disableTable(tn);
+					if(!admin.isTableDisabled(tn))
+						admin.disableTable(tn);
 					admin.deleteTable(tn);
 				}
 				HTableDescriptor desc=new HTableDescriptor(tn);
@@ -51,7 +67,22 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+	}
+	
+	public static void deleteAllTables(){
+		Admin admin;
+		try {
+			admin = con.getAdmin();
+			for(TableName tableName : admin.listTableNames()){
+				if(!admin.isTableDisabled(tableName))
+					admin.disableTable(tableName);
+				admin.deleteTable(tableName);
+				System.out.println(tableName.getNameAsString()+" has been deleted!");
+			}
+			System.out.println("All tables in hbase have been deleted!");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
